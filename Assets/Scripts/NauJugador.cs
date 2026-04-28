@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class NauJugador : MonoBehaviour
 {
     private float _vel;
+    private int _vides;
+    private bool _estaMort;
+
+    [SerializeField] private int _videsInicials = 3;
 
     public GameObject _ExplosioPrefab;
 
@@ -15,6 +19,8 @@ public class NauJugador : MonoBehaviour
     void Start()
     {
         _vel = 8f;
+        _vides = _videsInicials;
+        _estaMort = false;
     }
 
     // Update is called once per frame
@@ -34,11 +40,11 @@ public class NauJugador : MonoBehaviour
     void MoureNau(Vector2 direccioIndicada)
     {
         // Anem a moure la nau:
-        // 1) Agafem la posició actual (x, y) de la nau:
-        //      transform.position ens retorna la posició actual de la nau.
+        // 1) Agafem la posiciï¿½ actual (x, y) de la nau:
+        //      transform.position ens retorna la posiciï¿½ actual de la nau.
         Vector2 posNau = transform.position;
 
-        // 2) Trobem la nova posició de la nau:
+        // 2) Trobem la nova posiciï¿½ de la nau:
         posNau = posNau + direccioIndicada * _vel * Time.deltaTime;
         //Debug.Log("Time.deltaTime=" + Time.deltaTime);
 
@@ -53,23 +59,45 @@ public class NauJugador : MonoBehaviour
         posNau.x = Mathf.Clamp(posNau.x, minPantalla.x, maxPantalla.x);
         posNau.y = Mathf.Clamp(posNau.y, minPantalla.y, maxPantalla.y);
 
-        // 3) Assignem la nova posició (movem l'objecte):
+        // 3) Assignem la nova posiciï¿½ (movem l'objecte):
         transform.position = posNau;
     }
 
     private void OnTriggerEnter2D(Collider2D objecteTocat)
     {
-        if (objecteTocat.tag == "Enemic")
+        if (objecteTocat.tag == "Enemic" || objecteTocat.tag == "ProjectilEnemic")
+        {
+            RebreImpacte();
+        }
+    }
+
+    private void RebreImpacte()
+    {
+        if (_estaMort)
+        {
+            return;
+        }
+
+        _vides--;
+
+        if (_ExplosioPrefab != null)
         {
             GameObject explosio = Instantiate(_ExplosioPrefab);
             explosio.transform.position = transform.position;
-
-            // Gestió de vides jugador i canvi d'escena.
-
-            // No cal destruir la nau del jugador si es canvia l'escena.
-            //Destroy(gameObject);
-            
-            SceneManager.LoadScene("EscenaResultats");
         }
+
+        if (_vides > 0)
+        {
+            return;
+        }
+
+        _estaMort = true;
+
+        // Gestiï¿½ de vides jugador i canvi d'escena.
+
+        // No cal destruir la nau del jugador si es canvia l'escena.
+        //Destroy(gameObject);
+            
+        SceneManager.LoadScene("EscenaResultats");
     }
 }

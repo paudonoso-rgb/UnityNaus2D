@@ -100,4 +100,9 @@ public class NauJugador : MonoBehaviour
             
         SceneManager.LoadScene("EscenaResultats");
     }
+
+    public int getVidesJugador()
+    {
+        return _vides;
+    }
 }

@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public float currentTimeLeft;
+    public GameObject shipObject;
+    public float shipLaunchSpeed = 3f;
+
     private bool isCountingDown;
     private string pendingScene;
 
@@ -23,6 +26,10 @@ public class SceneLoader : MonoBehaviour
         if (!isCountingDown) return;
 
         currentTimeLeft -= Time.deltaTime;
+
+        if (shipObject != null)
+            shipObject.transform.Translate(Vector3.up * shipLaunchSpeed * Time.deltaTime, Space.World);
+
         if (currentTimeLeft <= 0f)
         {
             isCountingDown = false;
@@ -36,5 +43,11 @@ public class SceneLoader : MonoBehaviour
         pendingScene = SceneName;
         currentTimeLeft = delay;
         isCountingDown = true;
+
+        if (shipObject != null)
+        {
+            FloatEffect fe = shipObject.GetComponent<FloatEffect>();
+            if (fe != null) fe.enabled = false;
+        }
     }
 }

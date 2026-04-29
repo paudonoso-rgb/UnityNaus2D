@@ -5352,6 +5352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTimeLeft: 0
+  shipObject: {fileID: 1039812715}
+  shipLaunchSpeed: 5
 --- !u!114 &366547578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5364,7 +5366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccaa446d9f4a8c4d8b3b8a5b57cb753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 2.2
+  delay: 1.7
   nameScene: EscenaJoc
 --- !u!1 &830601966
 GameObject:

@@ -5,4 +5,6 @@ using UnityEngine;
 public static class ValorsGlobals
 {
     public static string puntsAconseguits;
+    public static int puntsTotals;
+    public static int totalVidesRecollides;
 }

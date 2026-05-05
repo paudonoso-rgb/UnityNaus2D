@@ -1,21 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PantallaResultats : MonoBehaviour
 {
-    [SerializeField]
-    private TMPro.TextMeshProUGUI puntsAconseguits;
+    [SerializeField] private TextMeshProUGUI puntsText;
+    [SerializeField] private TextMeshProUGUI videsRecollidesText;
 
-    // Start is called before the first frame update
     void Start()
     {
-        puntsAconseguits.text = ValorsGlobals.puntsAconseguits;
+        // Mostrar puntos
+        puntsText.text = "Punts: " + ValorsGlobals.puntsTotals.ToString();
+        // Mostrar vidas recogidas
+        videsRecollidesText.text = "Vides recollides: " + ValorsGlobals.totalVidesRecollides.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TornarInici()
     {
-        
+        // Reiniciar valores globales
+        ValorsGlobals.puntsTotals = 0;
+        ValorsGlobals.totalVidesRecollides = 0;
+        ValorsGlobals.puntsAconseguits = "Punts: 0";
+
+        // Cargar la escena de inicio (asegúrate del nombre exacto)
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaInici");
     }
 }

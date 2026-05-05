@@ -8,6 +8,7 @@ public class NauJugador : MonoBehaviour
     private float _vel;
     private int _vides;
     private bool _estaMort;
+    private int _totalVidesRecollides;
 
     [SerializeField] private int _videsInicials = 3;
 
@@ -21,6 +22,7 @@ public class NauJugador : MonoBehaviour
         _vel = 8f;
         _vides = _videsInicials;
         _estaMort = false;
+        _totalVidesRecollides = 0;
     }
 
     // Update is called once per frame
@@ -97,7 +99,14 @@ public class NauJugador : MonoBehaviour
 
         // No cal destruir la nau del jugador si es canvia l'escena.
         //Destroy(gameObject);
-            
+
+        TextPuntsJugador textPunts = GetComponent<TextPuntsJugador>();
+        if (textPunts != null)
+        {
+            ValorsGlobals.puntsTotals = textPunts.getPuntsJugador();
+        }
+        ValorsGlobals.totalVidesRecollides = _totalVidesRecollides;
+
         SceneManager.LoadScene("EscenaResultats");
     }
 
@@ -114,5 +123,6 @@ public class NauJugador : MonoBehaviour
         }
 
         _vides += videsAfegides;
+        _totalVidesRecollides += videsAfegides;
     }
 }

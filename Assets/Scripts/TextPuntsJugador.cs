@@ -25,6 +25,7 @@ public class TextPuntsJugador : MonoBehaviour
         _puntsJugadorInt += nousPunts;
         _puntsJugadorText.text = "Punts: " + _puntsJugadorInt;
         ValorsGlobals.puntsAconseguits = _puntsJugadorText.text;
+        ValorsGlobals.puntsTotals = _puntsJugadorInt;
     }
 
     public int getPuntsJugador()

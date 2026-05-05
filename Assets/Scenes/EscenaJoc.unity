@@ -235,6 +235,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &407842991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407842993}
+  - component: {fileID: 407842992}
+  - component: {fileID: 407842994}
+  m_Layer: 0
+  m_Name: GeneradorEnemicsESP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &407842992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407842991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2720f214a8c91f743a4e5b539878360d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NauEnemicEspecialPrefab: {fileID: 0}
+--- !u!4 &407842993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407842991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.21765909, y: -0.8822331, z: 0.0012658774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407842994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407842991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2720f214a8c91f743a4e5b539878360d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NauEnemicEspecialPrefab: {fileID: 8512223253433793064, guid: 83446062e87074045a9833d86f0f5ea6, type: 3}
 --- !u!1 &481570807
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _videsInicials: 3
   _ExplosioPrefab: {fileID: 360572281849487197, guid: 5ff334b04dab4184383989d0953ed1da, type: 3}
-  _gameManager: {fileID: 0}
 --- !u!50 &588607123
 Rigidbody2D:
   serializedVersion: 4
@@ -999,3 +1057,4 @@ SceneRoots:
   - {fileID: 1041924862}
   - {fileID: 335384377}
   - {fileID: 1213467908}
+  - {fileID: 407842993}

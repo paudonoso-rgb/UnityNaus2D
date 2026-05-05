@@ -13,7 +13,7 @@ public class NauJugador : MonoBehaviour
 
     public GameObject _ExplosioPrefab;
 
-    public GameManager _gameManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -104,5 +104,15 @@ public class NauJugador : MonoBehaviour
     public int getVidesJugador()
     {
         return _vides;
+    }
+
+    public void AfegirVida(int videsAfegides)
+    {
+        if (_estaMort)
+        {
+            return;
+        }
+
+        _vides += videsAfegides;
     }
 }

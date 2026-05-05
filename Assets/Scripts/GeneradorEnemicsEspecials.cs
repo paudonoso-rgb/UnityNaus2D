@@ -23,11 +23,6 @@ public class GeneradorEnemicsEspecials : MonoBehaviour
         InvokeRepeating("CreaEnemicEspecial", 7f, 5f);
     }
 
-    public void AturaGenerarEnemicsEspecials()
-    {
-        CancelInvoke("CreaEnemicEspecial");
-    }
-
     private void CreaEnemicEspecial()
     {
         if (_NauEnemicEspecialPrefab == null) return;
